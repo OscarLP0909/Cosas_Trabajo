@@ -20,51 +20,42 @@
       th {
         background-color: #0078D7;
         color: white;
-        width: 40%;
       }
 
       tr:nth-child(even) {
         background-color: #f9f9f9;
       }
 
-      .dark-row {
+      .header-row {
         background-color: #333;
         color: white;
+        text-align: center;
       }
     </style>
   </head>
   <body>
     <table>
-      <tr>
-        <th>TIPO CONTRATO ANTIGUO</th>
-        <td>Algo</td>
+      <tr class="header-row">
+        <th colspan="2">MODIFICACIÓN REALIZADA</th>
       </tr>
       <tr>
-        <th>TIPO CONTRATO NUEVO</th>
-        <td>Otro</td>
+        <th>ANTIGUO</th>
+        <th>NUEVO</th>
       </tr>
       <tr>
-        <th>SALARIO ANTIGUO</th>
+        <td style = "font-weight: bold;">TIPO CONTRATO ANTIGUO</td>
+        <td>TIPO CONTRATO NUEVO</td>
+      </tr>
+      <tr>
         <td>@{variables('salario_r')}</td>
-      </tr>
-      <tr>
-        <th>SALARIO NUEVO</th>
         <td>@{variables('var_salario')}</td>
       </tr>
       <tr>
-        <th>SUELDO ANTIGUO</th>
         <td>@{variables('sueldo_r')}</td>
-      </tr>
-      <tr>
-        <th>SUELDO NUEVO</th>
         <td>@{variables('var_sueldo')}</td>
       </tr>
       <tr>
-        <th>CATEGORÍA ANTIGUA</th>
         <td>@{variables('categoria_r')}</td>
-      </tr>
-      <tr>
-        <th>CATEGORÍA NUEVA</th>
         <td>@{variables('var_categoria')}</td>
       </tr>
     </table>
