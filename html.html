@@ -1,63 +1,99 @@
+** Correo de Notificación de Llamamiento **
+
 <!DOCTYPE html>
 <html>
   <head>
     <style>
-      table {
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding: 30px;
+      }
+table {
         width: 100%;
         border-collapse: collapse;
         font-family: Arial, sans-serif;
-        font-size: 14px;
+        font-size: 16px;
         margin-top: 20px;
         border: 1px solid #ccc;
       }
-
-      th, td {
+th, td {
         padding: 10px;
         border: 1px solid #ccc;
         text-align: left;
       }
 
-      th {
-        background-color: #0078D7;
-        color: white;
+      .container {
+        max-width: 650px;
+        margin: auto;
+        background-color: #ffffff;
+        border-radius: 10px;
+        padding: 25px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       }
 
-      tr:nth-child(even) {
-        background-color: #f9f9f9;
-      }
-
-      .header-row {
-        background-color: #333;
-        color: white;
+      h2 {
+        color: #2c3e50;
         text-align: center;
       }
+
+      h3 {
+        color: #2c3e50;
+        margin-top: 30px;
+      }
+
+      p {
+        font-size: 15px;
+        color: #444;
+        line-height: 1.5;
+      }
+
+      .section-info {
+        font-size: 16px;
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      .fecha {
+        margin-top: 30px;
+        font-size: 15px;
+      }
+
+      .footer {
+        font-size: 13px;
+        color: #888;
+        text-align: center;
+        margin-top: 40px;
+}
     </style>
-  </head>
+</head>
+
   <body>
-    <table>
-      <tr class="header-row">
-        <th colspan="2">MODIFICACIÓN REALIZADA</th>
-      </tr>
-      <tr>
-        <th>ANTIGUO</th>
-        <th>NUEVO</th>
-      </tr>
-      <tr>
-        <td style = "font-weight: bold;">TIPO CONTRATO ANTIGUO</td>
-        <td>TIPO CONTRATO NUEVO</td>
-      </tr>
-      <tr>
-        <td>@{variables('salario_r')}</td>
-        <td>@{variables('var_salario')}</td>
-      </tr>
-      <tr>
-        <td>@{variables('sueldo_r')}</td>
-        <td>@{variables('var_sueldo')}</td>
-      </tr>
-      <tr>
-        <td>@{variables('categoria_r')}</td>
-        <td>@{variables('var_categoria')}</td>
-      </tr>
-    </table>
+    <div class="container">
+      <h2>📄 Llamamientos del día @{variables('fechaInicio')}</h2>
+
+ <p class="fecha">
+        <strong>📅 Fecha de Inicio:</strong> @{variables('fechaInicio')}
+      </p>
+
+<table style="width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; color: white; background-color: #2c2c2c;">
+  <thead>
+    <tr>
+      <th colspan="5" style="background-color: #1a1a1a; padding: 15px; text-align: center; border: 1px solid #444;">LLAMAMIENTO @{variables('fechaInicio')}</th>
+    </tr>
+    <tr>
+      <th style="background-color: #1a1a1a; padding: 10px; text-align: center; border: 1px solid #444;">NOMBRE</th>
+      <th style="background-color: #1a1a1a; padding: 10px; text-align: center; border: 1px solid #444;">NIF_NIE</th>
+       <th style="background-color: #1a1a1a; padding: 10px; text-align: center; border: 1px solid #444;">CENTRO</th>
+       <th style="background-color: #1a1a1a; padding: 10px; text-align: center; border: 1px solid #444;">SOCIEDAD</th>
+    </tr>
+  </thead>
+          @{variables('html')}
+</table>
+
+      <p class="footer">
+        Este mensaje ha sido generado automáticamente. Por favor, no responder a este correo.
+      </p>
+    </div>
   </body>
 </html>
